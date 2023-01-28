@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="icon" type="image/png" href="favicon-96x96.png" />
+    <link rel="shortcut icon" type="image/png" ref="favicon-96x96.png" />
+    <title>みまもりカメラ</title>
+
+    <link
+      href="https://cdnjs.cloudflare.com/ajax/libs/flowbite/1.6.3/flowbite.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <header>
+      <nav
+        class="bg-white border-gray-200 px-4 lg:px-6 py-2.5 dark:bg-gray-800"
+      >
+        <div
+          class="flex flex-wrap justify-between items-center mx-auto max-w-screen-xl"
+        >
+          <a href="#" class="flex items-center">
+            <img
+              src="./favicon-96x96.png"
+              class="mr-3 h-6 sm:h-9"
+              alt="Flowbite Logo"
+            />
+            <span
+              class="self-center text-xl font-semibold whitespace-nowrap dark:text-white"
+              >みまもりカメラ</span
+            >
+          </a>
+          <div class="flex items-center lg:order-2">
+            <select
+              id="codec"
+              class="text-gray-800 dark:text-white hover:bg-gray-50 focus:ring-4 focus:ring-gray-300 font-medium rounded-lg text-sm px-4 lg:px-5 py-2 lg:py-2.5 mr-2 dark:hover:bg-gray-700 focus:outline-none dark:focus:ring-gray-800"
+            >
+              <option selected="H264">H264</option>
+              <option value="VP8">VP8</option>
+              <option value="VP9">VP9</option>
+              <option value="AV1">AV1</option>
+            </select>
+            <input
+              type="button"
+              onclick="setCameraMode('noon');"
+              value="昼モード"
+              class="bg-yellow-400 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mr-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+            <input
+              type="button"
+              onclick="setCameraMode('night');"
+              value="夜モード"
+              class="bg-purple-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mr-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+            <input
+              type="button"
+              onclick="connect();"
+              value="接続"
+              class="bg-blue-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mr-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+            <input
+              type="button"
+              onclick="disconnect();"
+              value="切断"
+              class="bg-red-700 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+          </div>
+        </div>
+      </nav>
+    </header>
+    <div class="mr-2 ml-2">
+      <video
+        id="remote_video"
+        autoplay
+        style="border: 3px solid gray"
+        class="w-full"
+      ></video>
+    </div>
+    <script type="text/javascript" src="./webrtc.js"></script>
+    <script type="text/javascript" src="./camera-controller-client.js"></script>
+  </body>
+</html>

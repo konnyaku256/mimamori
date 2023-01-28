@@ -1,0 +1,11 @@
+[Unit]
+Description=Mimamori Camera WebRTC server
+After=network.target
+
+[Service]
+WorkingDirectory=/home/pi/mimamori
+ExecStart=/home/pi/mimamori/momo test
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

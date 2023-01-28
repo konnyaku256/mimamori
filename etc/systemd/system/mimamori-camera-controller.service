@@ -1,0 +1,10 @@
+[Unit]
+Description=Mimamori Camera Controller
+
+[Service]
+WorkingDirectory=/home/pi/mimamori
+ExecStart=/home/pi/mimamori/mimamori-camera-controller
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
