@@ -42,6 +42,12 @@
             </select>
             <input
               type="button"
+              onclick="captureScreen();"
+              value="画面キャプチャ"
+              class="bg-green-400 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mr-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            />
+            <input
+              type="button"
               onclick="changeCameraMode('noon');"
               value="昼モード"
               class="bg-yellow-400 border border-gray-300 text-white text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 mr-2 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
@@ -77,6 +83,6 @@
       ></video>
     </div>
     <script type="text/javascript" src="./webrtc.js"></script>
-    <script type="text/javascript" src="./camera-controller-client.js"></script>
+    <script type="text/javascript" src="./mimamori-exec-client.js"></script>
   </body>
 </html>

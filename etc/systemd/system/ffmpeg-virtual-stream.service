@@ -1,0 +1,9 @@
+[Unit]
+Description=FFmpeg Virtual Stream
+
+[Service]
+ExecStart=sh /home/pi/mimamori/ffmpeg-virtual-stream.sh
+Restart=always
+
+[Install]
+WantedBy=multi-user.target

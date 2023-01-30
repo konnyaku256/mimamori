@@ -1,10 +1,10 @@
 [Unit]
 Description=Mimamori Camera WebRTC server
-After=network.target
+After=network.target ffmpeg-virtual-stream.service
 
 [Service]
 WorkingDirectory=/home/pi/mimamori
-ExecStart=/home/pi/mimamori/momo test
+ExecStart=/home/pi/mimamori/momo --video-device /dev/video2 test
 Restart=always
 
 [Install]

@@ -1,0 +1,10 @@
+[Unit]
+Description=Mimamori Exec Server
+
+[Service]
+WorkingDirectory=/home/pi/mimamori
+ExecStart=/home/pi/mimamori/mimamori-exec-server
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
