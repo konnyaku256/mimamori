@@ -44,7 +44,7 @@ mimamori-camera-controller は [v4l2-utils](https://git.linuxtv.org/v4l-utils.gi
 pi@raspberrypi:~ $ sudo apt install v4l-utils
 ```
 
-次に Raspberry Pi 向けにビルド済みの API サーバーのバイナリを scp で mac から Raspberry Pi に転送します。（[./backend/Makefile](./backend/Makefile) の scp の項目を参照ください。）
+次に Raspberry Pi 向けにビルド済みの API サーバーのバイナリを scp で mac から Raspberry Pi に転送します。（[./backend/mimamori-camera-controller/Makefile](./backend/mimamori-camera-controller/Makefile) の scp の項目を参照ください。）
 
 ```
 $ make scp
