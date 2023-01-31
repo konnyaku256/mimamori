@@ -5,6 +5,7 @@ Description=Mimamori Exec Server
 WorkingDirectory=/home/pi/mimamori
 ExecStart=/home/pi/mimamori/mimamori-exec-server
 Restart=always
+User=pi
 
 [Install]
 WantedBy=multi-user.target
