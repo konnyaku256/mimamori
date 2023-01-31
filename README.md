@@ -95,10 +95,17 @@ Linux では、通常 1 台のウェブカメラ（Video4Linux デバイス）�
 pi@raspberrypi:~ $ sudo apt install v4l2loopback-dkms
 ```
 
-次に v4l2loopback で仮想ビデオデバイスを作成します。（デバイス ID は指定できます。）
+次に、v4l2loopback で仮想ビデオデバイスを作成し、FFmpeg で物理ビデオデバイスの映像を仮想ビデオデバイスに転送するシェルスクリプトを scp で mac から Raspberry Pi に転送します。（[./scripts/ffmpeg-virtual-stream/Makefile](./scripts/ffmpeg-virtual-stream/Makefile) の scp の項目を参照ください。）  
+このシェルスクリプトは Raspberry Pi を起動するたびに実行する必要があります。
 
 ```
-pi@raspberrypi:~ $ sudo modprobe v4l2loopback video_nr=2,3
+$ make scp
+```
+
+シェルスクリプトには実行権限を付与しておきます。
+
+```
+pi@raspberrypi:~/mimamori $ chmod +x ffmpeg-virtual-stream.sh
 ```
 
 作成される仮想ビデオデバイスの例
@@ -113,18 +120,6 @@ Dummy video device (0x0001) (platform:v4l2loopback-001):
 	/dev/video3
 ```
 
-最後に、物理ビデオデバイスの映像を仮想ビデオデバイスに転送するシェルスクリプトを scp で mac から Raspberry Pi に転送します。（[./scripts/ffmpeg-virtual-stream/Makefile](./scripts/ffmpeg-virtual-stream/Makefile) の scp の項目を参照ください。）
-
-```
-$ make scp
-```
-
-シェルスクリプトには実行権限を付与しておきます。
-
-```
-pi@raspberrypi:~/mimamori $ chmod +x ffmpeg-virtual-stream.sh
-```
-
 ### 6 Systemd でサービス化
 
 次の 3 つの Systemd のサービスを /etc/systemd/system 下に配置します。
@@ -133,6 +128,7 @@ pi@raspberrypi:~/mimamori $ chmod +x ffmpeg-virtual-stream.sh
   - 手順 1 で導入した WebRTC Native Client Momo のバイナリを test モードで実行するサービス
 - [/etc/systemd/system/mimamori-exec-server.service](./etc/systemd/system/mimamori-exec-server.service)
   - 手順 2 で導入した Web カメラ制御 API サーバーのバイナリを実行するサービス
+  - 手順 3 で導入した mimamori-capture-screen を実行できるようにするため、実行ユーザーは pi を指定しています。
 - [/etc/systemd/system/ffmpeg-virtual-stream.service](./etc/systemd/system/ffmpeg-virtual-stream.service)
   - 手順 5 で導入した ffmpeg-virtual-stream.sh を実行するサービス
 
