@@ -5,7 +5,7 @@ After=network.target ffmpeg-virtual-stream.service
 [Service]
 WorkingDirectory=/home/pi/mimamori
 ExecStart=/home/pi/mimamori/momo --video-device /dev/video2 test
-Restart=always
+Restart=on-failure
 
 [Install]
 WantedBy=multi-user.target
