@@ -4,7 +4,7 @@ After=network.target ffmpeg-virtual-stream.service
 
 [Service]
 WorkingDirectory=/home/pi/mimamori
-ExecStart=/home/pi/mimamori/momo --video-device /dev/video2 test
+ExecStart=bash -c "sleep 5; /home/pi/mimamori/momo --video-device /dev/video2 test"
 Restart=on-failure
 
 [Install]
