@@ -126,7 +126,7 @@ Dummy video device (0x0001) (platform:v4l2loopback-001):
 
 - [/etc/systemd/system/mimamori-webrtc-server.service](./etc/systemd/system/mimamori-webrtc-server.service)
   - 手順 1 で導入した WebRTC Native Client Momo のバイナリを test モードで実行するサービス
-  - v4l2loopback による仮想カメラの作成完了を待機するため、sleep コマンドで 5 秒 遅延起動させています。
+  - v4l2loopback による仮想ビデオデバイスの作成完了を待機するため、sleep コマンドで 5 秒 遅延起動させています。
 - [/etc/systemd/system/mimamori-exec-server.service](./etc/systemd/system/mimamori-exec-server.service)
   - 手順 2 で導入した Web カメラ制御 API サーバーのバイナリを実行するサービス
   - 手順 3 で導入した mimamori-capture-screen を実行できるようにするため、実行ユーザーは pi を指定しています。
